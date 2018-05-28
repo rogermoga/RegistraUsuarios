@@ -20,28 +20,24 @@ $(document).ready(function () {
         console.log(data.user);
         $.ajax({
             data: data,
-            //timeout: 1000,
             type: 'POST',
             url: '/api/usuarios'
 
-        }).done(function (  textStatus, data, jqXHR) {
+        }).done(function (responseText, statusText , result) {
 
-            console.log("loggin successful")
-
+            console.log("loggin successful");
+            console.log(result);
             document.getElementById("userinfo").innerHTML = "Access granted";
 
-            console.log(data);
-            console.log(textStatus);
-            console.log(jqXHR);
+        }).fail(function (result) {
 
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            alert(' Wrong credentials');
-            window.location.href="http://localhost:8080/web/register.html";
-            console.log(textStatus);
-            console.log(jqXHR);
-            console.log(errorThrown);
-
+            console.log("the error is : " + result.status);
+                if(result.status == 406){
+                    document.getElementById("userinfo").innerHTML = "Please enter an email";
+                }else{
+                    alert(' Wrong credentials. Please register');
+                    window.location.href="http://localhost:8080/web/register.html";
+                }
         });
     });
-
 });

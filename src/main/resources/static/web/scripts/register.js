@@ -26,7 +26,7 @@ $(document).ready(function () {
             console.log(data);
             console.log(textStatus);
             console.log(jqXHR);
-            alert(' User Registered. Go back to log in to access');
+            alert(' User Registered. Register another user or go back to access');
 
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert(' failed');

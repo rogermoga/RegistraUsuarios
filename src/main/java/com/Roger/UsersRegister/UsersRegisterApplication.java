@@ -10,5 +10,5 @@ public class UsersRegisterApplication {
 		SpringApplication.run(UsersRegisterApplication.class, args);
 	}
 
-	Usuario usuario1 = new Usuario("Roger", "rogermoga@hotmail.com" ,"Getronics");
+
 }
